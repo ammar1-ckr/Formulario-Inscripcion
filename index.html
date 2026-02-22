@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Inscripción a talleres</title>
+    <link rel="stylesheet" href="estilos.css" />
+</head>
+
+<body>
+    <header>
+        <h1>Formulario de inscripción</h1>
+        <p>Apúntate a un taller. Los campos marcados con * son obligatorios.</p>
+    </header>
+
+    <main>
+        <section aria-labelledby="titulo-form">
+            <h2 id="titulo-form">Datos de la inscripción</h2>
+
+            <form id="form-inscripcion" novalidate>
+                <div id="mensajes" class="mensajes" role="alert" aria-live="polite"></div>
+
+                <div class="campo">
+                    <label for="nombre">Nombre y apellidos *</label>
+                    <input type="text" id="nombre" name="nombre" required minlength="3" placeholder="Ej: Ana Pérez"
+                        autocomplete="name" />
+                    <div id="error-nombre" class="texto-error" aria-live="polite"></div>
+                </div>
+
+                <div class="campo">
+                    <label for="correo">Correo electrónico *</label>
+                    <input type="email" id="correo" name="correo" required placeholder="tu@correo.com"
+                        autocomplete="email" />
+                    <div id="error-correo" class="texto-error" aria-live="polite"></div>
+                </div>
+
+                <div class="campo">
+                    <label for="telefono">Teléfono (9 dígitos, opcional)</label>
+                    <input type="tel" id="telefono" name="telefono" inputmode="numeric" pattern="^[0-9]{9}$"
+                        placeholder="600123456" />
+                    <div id="error-telefono" class="texto-error" aria-live="polite"></div>
+                </div>
+
+                <div class="campo">
+                    <label for="edad">Edad *</label>
+                    <input type="number" id="edad" name="edad" required min="16" max="120" placeholder="18" />
+                    <div id="error-edad" class="texto-error" aria-live="polite"></div>
+                </div>
+
+                <div class="campo">
+                    <label for="fecha">Fecha preferente *</label>
+                    <input type="date" id="fecha" name="fecha" required />
+                    <div id="error-fecha" class="texto-error" aria-live="polite"></div>
+                </div>
+
+                <div class="campo">
+                    <label for="actividad">Actividad *</label>
+                    <select id="actividad" name="actividad" required>
+                        <option value="">— Elige una opción —</option>
+                        <option value="html">HTML básico</option>
+                        <option value="css">CSS intermedio</option>
+                        <option value="js">JavaScript inicial</option>
+                    </select>
+                    <div id="error-actividad" class="texto-error" aria-live="polite"></div>
+                </div>
+
+                <fieldset class="campo">
+                    <legend>Preferencia de horario *</legend>
+                    <label><input type="radio" name="horario" value="manana" required /> Mañana</label>
+                    <label><input type="radio" name="horario" value="tarde" /> Tarde</label>
+                    <div id="error-horario" class="texto-error" aria-live="polite"></div>
+                </fieldset>
+
+                <div class="campo">
+                    <label for="comentarios">Comentarios (máx. 300)</label>
+                    <textarea id="comentarios" name="comentarios" rows="4" maxlength="300"
+                        placeholder="Cuéntanos necesidades especiales o dudas"></textarea>
+                    <div id="error-comentarios" class="texto-error" aria-live="polite"></div>
+                </div>
+
+                <div class="campo">
+                    <label>
+                        <input type="checkbox" id="condiciones" name="condiciones" required />
+                        Acepto las condiciones *
+                    </label>
+                    <div id="error-condiciones" class="texto-error" aria-live="polite"></div>
+                </div>
+
+                <button type="submit">Enviar inscripción</button>
+            </form>
+        </section>
+
+        <section aria-labelledby="titulo-lista">
+            <h2 id="titulo-lista">Inscripciones registradas</h2>
+            <ul id="lista" class="lista"></ul>
+        </section>
+    </main>
+
+    <footer>
+        <small>© 2026 Talleres Front‑End</small>
+    </footer>
+
+    <script src="formulario.js"></script>
+</body>
+
+</html>
